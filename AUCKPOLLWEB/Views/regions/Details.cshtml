@@ -1,0 +1,30 @@
+﻿@model AUCKPOLLWEB.Models.regions
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>regions</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.region_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.region_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.region_pop)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.region_pop)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.regionID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
