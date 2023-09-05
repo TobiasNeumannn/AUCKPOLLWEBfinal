@@ -6,7 +6,7 @@ var connectionString = builder.Configuration.GetConnectionString("AUCKPOLLWEBCon
 
 builder.Services.AddDbContext<AUCKPOLLWEBContextDb>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<AUCKPOLLWEBUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AUCKPOLLWEBContextDb>();
+builder.Services.AddDefaultIdentity<AUCKPOLLWEBUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AUCKPOLLWEBContextDb>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

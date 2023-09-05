@@ -9,5 +9,7 @@ namespace AUCKPOLLWEB.Areas.Identity.Data;
 // Add profile data for application users by adding properties to the AUCKPOLLWEBUser class
 public class AUCKPOLLWEBUser : IdentityUser
 {
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
 }
 
