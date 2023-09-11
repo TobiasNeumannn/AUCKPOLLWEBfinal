@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AUCKPOLLWEB.Areas.Identity.Data;
 using AUCKPOLLWEB.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AUCKPOLLWEB.Controllers
 {
+    [Authorize]
     public class regionsController : Controller
     {
+       
         private readonly AUCKPOLLWEBContextDb _context;
 
         public regionsController(AUCKPOLLWEBContextDb context)
