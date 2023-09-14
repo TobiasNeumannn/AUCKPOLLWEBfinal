@@ -23,11 +23,22 @@ namespace AUCKPOLLWEB.Controllers
         }
 
         // GET: regions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.regions != null ? 
-                          View(await _context.regions.ToListAsync()) :
-                          Problem("Entity set 'AUCKPOLLWEBContextDb.regions'  is null.");
+            if (_context.regions == null)
+            {
+                return Problem("Entity set is null.");
+            }
+
+            var regions = from m in _context.regions
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                regions = regions.Where(s => s.region_name!.Contains(searchString));
+            }
+
+            return View(await regions.ToListAsync());
         }
 
         // GET: regions/Details/5

@@ -22,10 +22,23 @@ namespace AUCKPOLLWEB.Controllers
         }
 
         // GET: airQualities
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var aUCKPOLLWEBContextDb = _context.airQuality.Include(a => a.Region);
-            return View(await aUCKPOLLWEBContextDb.ToListAsync());
+
+            if (_context.airQuality.Include(g => g.Region) == null)
+            {
+                return Problem("Entity set is null.");
+            }
+
+            var regions = from m in _context.airQuality.Include(a => a.Region)
+                          select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                regions = regions.Where(s => s.Region.region_name!.Contains(searchString));
+            }
+
+            return View(await regions.ToListAsync());
         }
 
         // GET: airQualities/Details/5

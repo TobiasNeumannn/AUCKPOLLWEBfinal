@@ -22,10 +22,24 @@ namespace AUCKPOLLWEB.Controllers
         }
 
         // GET: estuaryQualities
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var aUCKPOLLWEBContextDb = _context.estuaryQuality.Include(e => e.Region);
-            return View(await aUCKPOLLWEBContextDb.ToListAsync());
+           
+
+            if (_context.estuaryQuality.Include(e => e.Region) == null)
+            {
+                return Problem("Entity set is null.");
+            }
+
+            var regions = from m in _context.estuaryQuality.Include(e => e.Region)
+            select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                regions = regions.Where(s => s.Region.region_name!.Contains(searchString));
+            }
+
+            return View(await regions.ToListAsync());
         }
 
         // GET: estuaryQualities/Details/5

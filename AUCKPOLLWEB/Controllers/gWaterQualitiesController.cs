@@ -23,10 +23,22 @@ namespace AUCKPOLLWEB.Controllers
         }
 
         // GET: gWaterQualities
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var aUCKPOLLWEBContextDb = _context.gWaterQuality.Include(g => g.Region);
-            return View(await aUCKPOLLWEBContextDb.ToListAsync());
+            if (_context.gWaterQuality.Include(g => g.Region) == null)
+            {
+                return Problem("Entity set is null.");
+            }
+
+            var regions = from m in _context.gWaterQuality.Include(g => g.Region)
+            select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                regions = regions.Where(s => s.Region.region_name!.Contains(searchString));
+            }
+
+            return View(await regions.ToListAsync());
         }
 
         // GET: gWaterQualities/Details/5

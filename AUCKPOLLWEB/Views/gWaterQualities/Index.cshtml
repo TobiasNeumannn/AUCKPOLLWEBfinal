@@ -9,6 +9,14 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="gWaterQualities" asp-action="Index">
+    <p>
+        Region: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -46,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.unit)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Region.regionID)
+                @Html.DisplayFor(modelItem => item.Region.region_name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
