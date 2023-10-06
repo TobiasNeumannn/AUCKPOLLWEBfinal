@@ -15,6 +15,7 @@ namespace AUCKPOLLWEB.Models
         [Display(Name = "Indicator")]
         public string indicator { get; set; }
         [Display(Name = "Value")]
+        [Range(maximum: 1000, minimum: 0)]
         public float value { get; set; }
 
         public regions Region { get; set; }

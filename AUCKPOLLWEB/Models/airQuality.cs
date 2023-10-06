@@ -13,6 +13,7 @@ namespace AUCKPOLLWEB.Models
         [Display(Name = "Collection Date")]
         public string collection_date { get; set; }
         [Display(Name = "Value")]
+        [Range(maximum: 1000, minimum: 0)]
         public float value { get; set; }
         [Display(Name = "Unit")]
         public string unit { get; set; }

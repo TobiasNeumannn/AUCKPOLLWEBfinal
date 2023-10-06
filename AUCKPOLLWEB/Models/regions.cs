@@ -11,6 +11,7 @@ namespace AUCKPOLLWEB.Models
         [Display(Name = "Name")]
         public string region_name { get; set; }
         [Display(Name = "Population")]
+        [Range(maximum: 1000000, minimum: 1)]
         public int region_pop { get; set; }
 
         public ICollection<airQuality> airQualities { get; set; }

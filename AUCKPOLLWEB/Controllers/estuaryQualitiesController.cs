@@ -24,8 +24,6 @@ namespace AUCKPOLLWEB.Controllers
         // GET: estuaryQualities
         public async Task<IActionResult> Index(string searchString)
         {
-           
-
             if (_context.estuaryQuality.Include(e => e.Region) == null)
             {
                 return Problem("Entity set is null.");
