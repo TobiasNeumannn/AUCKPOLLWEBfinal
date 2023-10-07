@@ -9,6 +9,7 @@ namespace AUCKPOLLWEB.Models
         [Display(Name = "Region ID")]
         public int regionID { get; set; }
         [Display(Name = "Name")]
+        [StringLength(maximumLength: 50, MinimumLength = 2)]
         public string region_name { get; set; }
         [Display(Name = "Population")]
         [Range(maximum: 1000000, minimum: 1)]
