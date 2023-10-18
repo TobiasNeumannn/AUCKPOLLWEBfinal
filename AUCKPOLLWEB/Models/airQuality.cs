@@ -11,8 +11,8 @@ namespace AUCKPOLLWEB.Models
         [Display(Name = "Region ID")]
         public int regionID { get; set; }
         [Display(Name = "Collection Date")]
-        [StringLength(maximumLength: 10, MinimumLength = 6)]
-        public string collection_date { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime collection_date { get; set; }
         [Display(Name = "Value")]
         [Range(maximum: 1000, minimum: 0)]
         public float value { get; set; }
