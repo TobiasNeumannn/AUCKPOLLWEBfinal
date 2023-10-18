@@ -10,7 +10,7 @@ namespace AUCKPOLLWEB.Models
         [Display(Name = "Region ID")]
         public int regionID { get; set; }
         [Display(Name = "Collection Date")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date)] // Data annotation that makes it so the user only had to enter a date, not date and time
         public DateTime collection_date { get; set; }
         [Display(Name = "Indicator")]
         [StringLength(maximumLength: 20, MinimumLength = 2)]

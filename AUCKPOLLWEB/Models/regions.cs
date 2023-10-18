@@ -15,6 +15,7 @@ namespace AUCKPOLLWEB.Models
         [Range(maximum: 1000000, minimum: 1)]
         public int region_pop { get; set; }
 
+        // Points to the children tables, the quality tables - allows other tables to take foreign keys from this table.
         public ICollection<airQuality> airQualities { get; set; }
         public ICollection<estuaryQuality> estuaryQualities { get; set; }
         public ICollection<gWaterQuality> gWaterQualities { get; set; }
