@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AUCKPOLLWEB.Models.airQuality>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index"; // Changes heading at top of page
 }
 
 <h1>Air Quality</h1>
@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.unit)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Region.region_name)
+                    @Html.DisplayFor(modelItem => item.Region.region_name) <!-- Displays foreign key regionID as region_name -->
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
